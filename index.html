@@ -1,0 +1,256 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Valserin</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+	
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div id="valserinlogo">
+<img src="img/logo.png" id="logo" style="position:absolute;transform:translate(-50%,-50%);left:50%;top:50%;opacity:0"></img>
+</div>
+
+<div id="fond"></div>
+<div id="particles-js"></div>
+<div class="progress" style="height:3px;position:fixed;bottom:0;width:100%;background-color:transparent">
+	<div class="progress-bar customprogress" id="scrollprogress" style="width:0%;"></div>
+</div>
+
+<div id="carouselbague" class="d-none">
+	<div style="position:absolute;background-color:#d1b8cd;height:200vh;width:25vw;left:19.5%;top:-20%"></div>
+	<div id="carousel" class="carousel slide" data-bs-ride="carousel">
+	  <a class="carousel-control-prev" type="button" href="#carousel" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	  </a>
+	  <a class="carousel-control-next" type="button" href="#carousel" data-bs-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	  </a>
+	  <div class="carousel-inner">
+		<script>
+			var str = "";
+			for(var i = 0; i < 16;i++){
+				var imgstr = (i+1).toString().padStart(2,'0');
+				var active = (i==0?"active":"")
+				str +='<div class="carousel-item '+active+'"><img src="img/Carousel/'+imgstr+'.png" class="d-block w-100"></div>'
+				$(".carousel-inner").html(str);
+				console.log("test");
+			}
+		</script>
+	  </div>
+	</div>
+</div>
+
+
+<div id="parallax"></div>
+<div id="bagueplastorendu">
+	<img id="baguetransmetal" style="position:absolute;" src="img/TransitionRendu/metal.png"></img>
+	<img id="baguetransplast" style="position:absolute;" src="img/TransitionRendu/plastique.png"></img>
+</div>
+<div id="ficheTechnique">
+	<img style="position:absolute;width:27vw;" src="img/FicheTechnique/0.jpg" ></img>
+	<img style="position:absolute;width:27vw;left:29vw;top:10vh" src="img/FicheTechnique/1.jpg" ></img>
+</div>
+
+
+<div class="text">
+	<span id="page0"></span>
+	<div class="textContent" id="page1" style="top:10%;left:12.5%;width:25vw;">
+		Deux jeunes bijoutiers ambitieux, nous souhaitons aujourd’hui proposer un accès facilité à la technologie 3D pour tous les professionnels via un service clés en main. 
+		<br/><br/>
+		Notre expérience dans l’utilisation et la manipulation de cette technique nous permet aujourd’hui d’en proposer les avantages. 
+		<br/><br/>
+		De La simplification et l’amélioration des échanges avec les clients, jusqu'à la réalisation de la pièce finie, la 3d offre un large panel de nouvelles méthodes de travail.
+	</div>
+	<div class="textContent anchorCenter" id="page2" style="top:50%;left:50%;width:40vw;">
+		<h2>Des possibilitées infinie et sans restriction</h2>
+		<hr/>
+		La  3D offre des possibilités infinies pour la création de visuels à des coûts réduits. Aucune barrière technique ou artistique ne restreindra notre équipe, qui saura vous rendre un produit fini de qualité et permettra à vos clients de faire aboutir leurs idées uniques.
+	</div>
+	<div class="textContent" id="page3" style="top:10%;left:8%;width:30vw;">
+		<h2>Un réalisme qui aide a ce projeter</h2>
+		<hr/>
+		Les visuel numerique
+		photoréaliste que nous 
+		produisons facilitent la
+		visualisation du bijou fini 
+		dans les moindres details.
+
+	</div>
+	<div class="textContent" id="page4" style="bottom:10%;right:8%;width:30vw;">
+		C’est un outil idéal pour aider 
+		votre client à ce projeter, en 
+		confiance et sans impliquer la 
+		creation d’une pièce fini ou d’un prototype physique
+	</div>
+	<div class="textContent" id="page5" style="top:10%;left:8%;width:20vw;">
+		La fiche technique fournie, avec les visuels, donne des précisions essentielles pour la rédaction d’un devis. 
+		et la réalisation de la pièce fini en atelier
+	</div>
+</div>
+
+<script src="particles.min.js"></script>
+<script src="app.js"></script>
+<script src="parallax.js"></script>
+<script src="gradient.js"></script>
+<script>
+	$(document).ready(function(){
+		page0();
+	});
+
+
+	var grad = [
+		{c:[{r: 40,g: 40,b: 40},{r: 60,g: 60,b: 60}],deg:40 },
+		{c:[{r:191,g:146,b: 90},{r:255,g:255,b:255}],deg:30 },
+		{c:[{r: 51,g: 39,b: 34},{r: 98,g: 89,b: 99}],deg:120},
+		{c:[{r: 20,g: 20,b: 20},{r: 20,g: 20,b: 20}],deg:0  },
+		{c:[{r:  8,g: 31,b: 69},{r: 20,g: 23,b: 28}],deg:-360 }
+	];	
+	var actualgrad=0;
+	
+	
+	var page0 = function(){
+		wait = 1;
+		console.log("page 0");
+		$("#logo").css({opacity:0});
+		$("#logo").animate({opacity:1},500,function(){});
+		setTimeout(function(){stateCounter++;transition();},1000);
+	}
+	
+	var page1 = function(){
+		console.log("page 1");
+		gradientTransition("#fond",grad[actualgrad],grad[0],500);
+		actualgrad = 0;
+		transitionbagueparallax(0,false,function(){$("#valserinlogo").animate({opacity:0},500,function(){wait=0;$("#logo").remove();$("#valserinlogo").css({"z-index":"-10000"})});});
+	}
+	
+	var page2 = function(){
+		gradientTransition("#fond",grad[actualgrad],grad[1],500);
+		actualgrad = 1;
+		console.log("page 2");
+		transitionbagueparallax(0);
+	}
+	
+	var page3 = function(){
+		console.log("page 3");
+		transitionbagueparallax(1);
+	}
+	
+	var page4 = function(){
+		console.log("page 4");
+		transitionbagueparallax(2); 
+		gradientTransition("#fond",grad[actualgrad],grad[1],500);
+		actualgrad=1;
+		$("#bagueplastorendu").animate({left:"120%"},500);
+	}
+	
+	
+	var page5 = function(){
+		console.log("page 5");
+		gradientTransition("#fond",grad[actualgrad],grad[2],500);
+		actualgrad=2;
+		transitionbagueparallax(0,false);
+		$("#baguetransplast").animate({"opacity":"1"},500);
+		$("#bagueplastorendu").animate({left:"20%"},500,function(){
+			wait=0;
+		});
+	}
+	
+	var page6 = function(){
+		console.log("page 6");
+		gradientTransition("#fond",grad[actualgrad],grad[3],500);
+		actualgrad=3;
+		wait=0;
+		$("#bagueplastorendu").animate({left:"20%"});
+		$("#baguetransplast").animate({"opacity":"0"},500);
+		$("#ficheTechnique").animate({bottom:"-20%"});
+	}
+	
+	var page7 = function(){
+		console.log("page 7");
+		gradientTransition("#fond",grad[actualgrad],grad[4],500);
+		actualgrad=4;
+		$(bagueplastorendu).animate({left:"120%"},500);
+		$("#ficheTechnique").animate({bottom:"92.5%"});
+		wait=0;
+	}
+	
+	var state = [
+		function(){page0();textTransition("#page0")},
+		function(){page1();textTransition("#page1")},
+		function(){page2();textTransition("#page2")},
+		function(){page3();textTransition("#page2")},
+		function(){page4();textTransition("#page2")},
+		function(){page5();textTransition("#page3")},
+		function(){page6();textTransition("#page4")},
+		function(){page7();textTransition("#page5")},
+	]
+	
+	
+	
+	var oldState=0;
+	var stateCounter=0;
+	var wait = 1;
+	var waittext = 0;
+	document.addEventListener("wheel",function(){
+		if(wait==0 && waittext == 0){
+			oldState = stateCounter;
+			if (event.deltaY < 0){
+				stateCounter--;
+				if(stateCounter<1) stateCounter = 1;
+			}else{
+				stateCounter++;
+				if(stateCounter>state.length-1)stateCounter = state.length-1
+			}
+			
+				
+			if(oldState!=stateCounter){
+				wait=1;
+				transition();
+			}
+		}
+	});
+	
+	
+	function transition(){
+		state[stateCounter]();
+	}
+	
+	
+	var actualText_id = "#page0";
+	function textTransition(id){
+		if(actualText_id == id) return;
+		waittext=1;
+		$(actualText_id).animate({opacity:0},100,function(){
+			$(id).animate({opacity:1},250,function(){
+				waittext=0;
+			});
+		});
+		actualText_id = id;
+	}
+	
+	function transitionbagueparallax(setbague,reapear = true,clbk = undefined){
+		$("#parallax").animate({opacity:0},500,function(){
+			$("#parallax").css({"background-image":'url("img/Bague'+setbague+'/1.png"),url("img/Bague'+setbague+'/2.png"),url("img/Bague'+setbague+'/3.png")'});
+			if(reapear){
+				$("#parallax").animate({opacity:1},500,function(){
+					wait = 0;
+					if(clbk != undefined) clbk();
+				});
+			}else if(clbk != undefined){
+				clbk();
+			}
+		});
+	}
+</script>
+</body>
+</html>
