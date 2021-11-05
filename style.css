@@ -19,11 +19,11 @@ body{
 	font-weight: 200 !important;
 }
 
-
 .textContent{
 	position: fixed;
-	font-size:28px;
+	font-size:1.25vw;
 	color:#FFF;
+	text-shadow:0px 0px 5px #f7f3dc;
 	opacity:0;
 }
 
@@ -34,6 +34,42 @@ h2{
 .anchorCenter{
 	transform: translate(-50%,-50%);
 }
+
+#navigation{
+	position:fixed;
+	bottom:5%;
+	left:50%;
+	transform:translate(-50%,0);
+	display:flex;
+	z-index:10000;
+	vertical-align:bottom;
+}
+
+.valnav{
+	cursor:pointer;
+	height:5px;
+	width:30px;
+	margin:10px;
+	background-color:#FFFFFF77;
+}
+
+.navlabel{
+	width:100%;
+	font-size:20px;
+	color:#FFF;
+	position:fixed;
+	top:-25px;
+}
+
+
+.valnav.active{
+	width:30px;
+	margin:10px;
+	background-color:#FFF;
+}
+
+
+
 
 #particles-js {
   height: 100%;
@@ -71,10 +107,17 @@ h2{
 }
 
 #carouselbague{
-	z-index:2000;
+	z-index:500;
 	position:fixed;
 	width:40vw;
 	left:70%;
-	top:50%;
-	transform:translate(-50%,-50%)
+	top:200%;
+	transform:translate(-50%,-50%);
+}
+
+#demontageRemontage{
+	width:100vw;
+	height:100vh;
+	position:fixed;
+	top:-100vh;
 }

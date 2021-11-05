@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
-	<title>Valserin</title>
+	<title>Valserain</title>
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<link rel="stylesheet" href="style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,17 +17,18 @@
 </head>
 <body>
 
+<img src="img/logo.png" style="position:fixed;left:2%;top:2%;width:5vw;"></img>
+
+
 <div id="valserinlogo">
 <img src="img/logo.png" id="logo" style="position:absolute;transform:translate(-50%,-50%);left:50%;top:50%;opacity:0"></img>
 </div>
 
 <div id="fond"></div>
 <div id="particles-js"></div>
-<div class="progress" style="height:3px;position:fixed;bottom:0;width:100%;background-color:transparent">
-	<div class="progress-bar customprogress" id="scrollprogress" style="width:0%;"></div>
-</div>
 
-<div id="carouselbague" class="d-none">
+
+<div id="carouselbague">
 	<div style="position:absolute;background-color:#d1b8cd;height:200vh;width:25vw;left:19.5%;top:-20%"></div>
 	<div id="carousel" class="carousel slide" data-bs-ride="carousel">
 	  <a class="carousel-control-prev" type="button" href="#carousel" data-bs-slide="prev">
@@ -43,58 +45,161 @@
 				var active = (i==0?"active":"")
 				str +='<div class="carousel-item '+active+'"><img src="img/Carousel/'+imgstr+'.png" class="d-block w-100"></div>'
 				$(".carousel-inner").html(str);
-				console.log("test");
 			}
 		</script>
 	  </div>
 	</div>
 </div>
 
+<div class="videodemo d-none" style="position:fixed;width:100vw;height:100vh;z-index:1000;background-color:#00000055" onclick="$(this).addClass('d-none')">
+	<video controls style="position:fixed;height:75vh;top:50%;left:50%;transform:translate(-50%,-50%);">
+		<source src="img/Carousel/18.m4v">
+	</video>
+</div>
+
 
 <div id="parallax"></div>
 <div id="bagueplastorendu">
-	<img id="baguetransmetal" style="position:absolute;" src="img/TransitionRendu/metal.png"></img>
-	<img id="baguetransplast" style="position:absolute;" src="img/TransitionRendu/plastique.png"></img>
+	<img id="baguetransmetal" style="position:absolute;width:67vw;" src="img/TransitionRendu/metal.png"></img>
+	<img id="baguetransplast" style="position:absolute;width:67vw;" src="img/TransitionRendu/plastique.png"></img>
 </div>
 <div id="ficheTechnique">
 	<img style="position:absolute;width:27vw;" src="img/FicheTechnique/0.jpg" ></img>
 	<img style="position:absolute;width:27vw;left:29vw;top:10vh" src="img/FicheTechnique/1.jpg" ></img>
 </div>
 
+<div id="demontageRemontage">
+	<div style="position:absolute;background-color:#333;height:90vh;width:25vw;left:50%;transform:translate(-50%,0)">
+		<img class="dr-0 drall" style="position:absolute;width:20vw;top:30%;left:10%" src="img/montagedemontage/0.png" ></img>
+		<img class="dr-1 drall" style="position:absolute;width:20vw;top:15%;left:10%" src="img/montagedemontage/1.png" ></img>
+		<img class="dr-2 drall" style="position:absolute;width:20vw;top:00%;left:10%" src="img/montagedemontage/2.png" ></img>
+		<img class="dr-1 drall" style="position:absolute;width:20vw;top:15%;left:10%" src="img/montagedemontage/3.png" ></img>
+	</div>
+</div>
+
+
+<div id="navigation">
+	<div onclick="forceTransition(1)" class="valnav active"><span class="d-none navlabel">Introduction</span></div>
+	<div onclick="forceTransition(2)" class="valnav"	   ><span class="d-none navlabel">Une infinité de possibilitée I</span></div>
+	<div onclick="forceTransition(3)" class="valnav"	   ><span class="d-none navlabel">Une infinité de possibilitée II</span></div>
+	<div onclick="forceTransition(4)" class="valnav"	   ><span class="d-none navlabel">Une infinité de possibilitée III</span></div>
+	<div onclick="forceTransition(5)" class="valnav"	   ><span class="d-none navlabel">Prévisualisation client (Plastique)</span></div>
+	<div onclick="forceTransition(6)" class="valnav"	   ><span class="d-none navlabel">Prévisualisation client (Rendu)</span></div>
+	<div onclick="forceTransition(7)" class="valnav"	   ><span class="d-none navlabel">Fiche Technique</span></div>
+	<div onclick="forceTransition(8)" class="valnav"	   ><span class="d-none navlabel">Réalisation de produit fini</span></div>
+	<div onclick="forceTransition(9)" class="valnav"	   ><span class="d-none navlabel">A propos de nous</span></div>
+	
+	<script>
+		$(".valnav").mouseenter(function(){
+			$(this).find('span').removeClass("d-none");
+		});
+		
+		
+		$(".valnav").mouseleave(function(){
+			$(this).find('span').addClass("d-none");
+		})	
+	
+	</script>
+	
+</div>
 
 <div class="text">
 	<span id="page0"></span>
-	<div class="textContent" id="page1" style="top:10%;left:12.5%;width:25vw;">
-		Deux jeunes bijoutiers ambitieux, nous souhaitons aujourd’hui proposer un accès facilité à la technologie 3D pour tous les professionnels via un service clés en main. 
-		<br/><br/>
-		Notre expérience dans l’utilisation et la manipulation de cette technique nous permet aujourd’hui d’en proposer les avantages. 
-		<br/><br/>
-		De La simplification et l’amélioration des échanges avec les clients, jusqu'à la réalisation de la pièce finie, la 3d offre un large panel de nouvelles méthodes de travail.
-	</div>
-	<div class="textContent anchorCenter" id="page2" style="top:50%;left:50%;width:40vw;">
-		<h2>Des possibilitées infinie et sans restriction</h2>
+	<div class="textContent d-none" id="page1" style="top:10%;left:12.5%;width:25vw;">
+		<h2>Introduction</h2>
 		<hr/>
-		La  3D offre des possibilités infinies pour la création de visuels à des coûts réduits. Aucune barrière technique ou artistique ne restreindra notre équipe, qui saura vous rendre un produit fini de qualité et permettra à vos clients de faire aboutir leurs idées uniques.
+		<p>Deux jeunes bijoutiers ambitieux, nous souhaitons aujourd’hui proposer un accès facilité à la technologie 3D pour tous les professionnels via un service clés en main.</p>
+		<p>Notre expérience dans l’utilisation et la manipulation de cette technique nous permet aujourd’hui d’en proposer les avantages.</p>
+		<p>De la simplification et l’amélioration des échanges avec les clients, la facilité de modification, jusqu'à la réalisation de la pièce finie, la 3d offre un large panel de nouvelles méthodes de travail.</p>
+		
+		<button class="btn btn-outline-secondary" onclick="$('.videodemo').removeClass('d-none');$('.videodemo').trigger('play')" style="cursor:pointer">voir la vidéo demo</button>
 	</div>
-	<div class="textContent" id="page3" style="top:10%;left:8%;width:30vw;">
-		<h2>Un réalisme qui aide a ce projeter</h2>
+	<div class="textContent anchorCenter d-none" id="page2" style="top:50%;left:50%;width:40vw;">
+		<h2>Une infinité de possibilitée sans contrainte</h2>
 		<hr/>
-		Les visuel numerique
-		photoréaliste que nous 
-		produisons facilitent la
-		visualisation du bijou fini 
-		dans les moindres details.
-
 	</div>
-	<div class="textContent" id="page4" style="bottom:10%;right:8%;width:30vw;">
-		C’est un outil idéal pour aider 
-		votre client à ce projeter, en 
-		confiance et sans impliquer la 
-		creation d’une pièce fini ou d’un prototype physique
+	<div class="textContent anchorCenter d-none" id="page2bis" style="top:50%;left:50%;width:40vw;">
+		La technologie 3D offre des possibilités infinies pour la création de visuels, et ce à des coûts réduits.
+	</div> 
+	<div class="textContent anchorCenter d-none" id="page2ter" style="top:50%;left:50%;width:40vw;">
+		Aucune barrière technique ou artistique ne restreindra notre équipe, qui saura vous rendre un produit fini de qualité tout en permettant à vos clients de parvenir à l’aboutissement concret de leurs souhaits. 
+	</div> 
+	<div class="textContent d-none" id="page3" style="top:10%;left:8%;width:30vw;">
+		<h2>Prévisualisation client</h2>
+		<hr/>
+			Les visuels numériques photoréalistes que nous proposons, en accord avec la demande des clients, facilitent la pré-visualisation du bijou fini dans les détails les plus techniques.
 	</div>
-	<div class="textContent" id="page5" style="top:10%;left:8%;width:20vw;">
-		La fiche technique fournie, avec les visuels, donne des précisions essentielles pour la rédaction d’un devis. 
-		et la réalisation de la pièce fini en atelier
+	<div class="textContent d-none" id="page4" style="bottom:10%;right:8%;width:30vw;">
+		C’est un outil idéal pour aider le client à se projeter, en confiance et sans impliquer directement la création d’une pièce finie ou d’un prototype physique
+	</div>
+	<div class="textContent d-none" id="page5" style="top:10%;left:8%;width:20vw;">
+		<p>
+			La fiche technique fournie avec les visuels donne, quant à elle,  des précisions essentielles pour la rédaction d’un devis et la réalisation de la pièce finie dans les ateliers
+		</p>
+		<p>
+			ces fiches techniques sont aussi un moyen simple d'indiquer d'éventuelles modifications directement à même la feuille, elles se présentent donc comme un support indispensable d'aide à la communication entre le bijoutier et le dessinateur 3D
+		</p>
+	</div>
+	<div class="textContent d-none" id="page6" style="color:#000">
+		<div style="position:fixed;top:10%;left:4%;width:30vw">
+			<h2>Réalisation de produit fini</h2>
+			<hr/>
+			Notre équipe propose, de plus, la réalisation du produit fini en le préparant pour l’impression 3D et la fonte. Ces dernières étapes participent également à réduire les coûts de fabrication.
+		</div>
+		<div style="position: fixed;bottom:20%;right:4%;width:30vw;">
+			Pour favoriser la qualité de cette fonte, notre équipe dispose préalablement les tiges de fontes,supports et prend l'initiative de démonter les bijoux pour un réparé plus efficace et précis.
+		</div>
+	</div>	
+	<div class="textContent d-none" id="page7">
+		<div style="display:flex;position:fixed;top:5%;left:5vw;width:70vw">
+			<div>
+				<img src="img/Contact/tim.png" style="width:25vw;border-radius:1000px"></img>
+			</div>
+			<div style="padding-left:5vw">
+					<h2>Timothy</h2>
+					<hr/>
+					Passionné par la bijouterie et le numérique. La 3D s'est vite présentée à lui comme l’entre deux parfait, après l'obtention  de son CAP il ne lui a pas fallu beaucoup de temps avant qu’il ne se fasse remarquer par une entreprise lyonnaise. Aujourd’hui, il y travaille à plein temps et est devenu en 1 an le responsable du pôle 3D. Innovation, technicité,sérieux et logique règnent dans son travail. Parallèlement, il devient chef du secteur 3D du projet Valserain monté en 2020.
+			</div>
+		</div>
+		<div style="display:flex;position:fixed;bottom:20%;left:5vw;width:70vw">
+			<div>
+				<h2>Aymeric</h2>
+				<hr/>
+				Issu du parcours scolaire traditionnel : Cap puis Bma en apprentissage. Il devient bijoutier dans une entreprise lyonnaise. Formé à la cheville par des références du métier, il décide de se former en parallèle à la conception numérique et alterne entre atelier et logiciels 3D. En 2020 il Co-fonde le projet Valserain avec le désire d'innover et de démocratiser la bijouterie 3D.		
+			</div>
+			<div style="padding-left:5vw">
+					<img src="img/Contact/aymeric.png" style="width:25vw;border-radius:1000px"></img>
+			</div>
+		</div>
+		<div style="position:fixed;width:20vw;top:0;right:0;height:100vh;background-color:#FFFFFFBB;color:#000;padding:10px">
+			<h3>Contact</h3>
+			<hr/>
+			<div style="padding:25px 0">
+				<h4>Adresse</h4>
+				<div style="padding-left:10px">
+					Qur Le Village</br>
+					39310 Lajoux
+				</div>
+			</div>
+			<div style="padding:25px 0">
+				<h4>Téléphone</h4>
+				<div style="padding-left:10px;display:flex">
+					<div><img src="img/Contact/telephone.png" style="height:1.25vw"></img></div>
+					<div style="padding-left:10px">0648834015</div>
+				</div>
+			</div>
+			<div style="padding:25px 0">
+				<h4>E-mail</h4>
+				<div style="padding-left:10px;display:flex">
+					<div><img src="img/Contact/enveloppe.png" style="height:1.25vw"></img></div>
+					<div style="padding-left:10px">Contact@valserain.com</div>
+				</div>
+			</div>
+		</div>
+		
+		<div style="position:fixed;right:2vw;bottom:2vh;font-size:16px">
+		<a href="https://www.linkedin.com/in/alexis-duperon22/">Site web fait par Alexis Duperon</a>
+		</div>
 	</div>
 </div>
 
@@ -109,116 +214,181 @@
 
 
 	var grad = [
-		{c:[{r: 40,g: 40,b: 40},{r: 60,g: 60,b: 60}],deg:40 },
-		{c:[{r:191,g:146,b: 90},{r:255,g:255,b:255}],deg:30 },
-		{c:[{r: 51,g: 39,b: 34},{r: 98,g: 89,b: 99}],deg:120},
-		{c:[{r: 20,g: 20,b: 20},{r: 20,g: 20,b: 20}],deg:0  },
-		{c:[{r:  8,g: 31,b: 69},{r: 20,g: 23,b: 28}],deg:-360 }
+		{c:[{r: 40,g: 40,b: 40},{r: 60,g: 60,b: 60}],deg:-240},
+		{c:[{r:191,g:146,b: 90},{r:255,g:255,b:255}],deg:  30},
+		{c:[{r: 51,g: 39,b: 34},{r: 98,g: 89,b: 99}],deg: 120},
+		{c:[{r: 20,g: 20,b: 20},{r: 20,g: 20,b: 20}],deg:   0},
+		{c:[{r:  7,g: 37,b: 41},{r:  0,g:  0,b:  0}],deg:-360},
+		{c:[{r:194,g:237,b:200},{r:177,g:180,b:181}],deg:  80},
+		{c:[{r: 45,g: 45,b: 45},{r:  0,g:  0,b:  0}],deg:-360}
+		
 	];	
 	var actualgrad=0;
 	
-	
 	var page0 = function(){
 		wait = 1;
-		console.log("page 0");
+		console.log("page 0 - logo");
 		$("#logo").css({opacity:0});
-		$("#logo").animate({opacity:1},500,function(){});
-		setTimeout(function(){stateCounter++;transition();},1000);
+		$("#logo").animate({opacity:1},500*speed,function(){});
+		setTimeout(function(){stateCounter++;transition();},1000*speed);
 	}
 	
 	var page1 = function(){
-		console.log("page 1");
-		gradientTransition("#fond",grad[actualgrad],grad[0],500);
+		console.log("page 1 - carousel");
+		gradientTransition("#fond",grad[actualgrad],grad[0],500*speed);
 		actualgrad = 0;
-		transitionbagueparallax(0,false,function(){$("#valserinlogo").animate({opacity:0},500,function(){wait=0;$("#logo").remove();$("#valserinlogo").css({"z-index":"-10000"})});});
+		$("#carouselbague").animate({top:"50%"},200*speed);
+		transitionbagueparallax(0,false,function(){
+			$("#valserinlogo").animate({opacity:0},500*speed,function(){
+				wait=0;
+				$("#logo").remove();
+				$("#valserinlogo").css({"z-index":"-10000"})
+			});
+		});
 	}
 	
 	var page2 = function(){
-		gradientTransition("#fond",grad[actualgrad],grad[1],500);
+		console.log("page 2 - parallax (1)");
+		$("#carouselbague").animate({top:"200%"},200*speed);
+		gradientTransition("#fond",grad[actualgrad],grad[1],500*speed);
 		actualgrad = 1;
-		console.log("page 2");
 		transitionbagueparallax(0);
 	}
 	
 	var page3 = function(){
-		console.log("page 3");
+		console.log("page 3 - parallax (2)");
 		transitionbagueparallax(1);
 	}
 	
 	var page4 = function(){
-		console.log("page 4");
+		console.log("page 4 - parallax (3)");
 		transitionbagueparallax(2); 
-		gradientTransition("#fond",grad[actualgrad],grad[1],500);
+		gradientTransition("#fond",grad[actualgrad],grad[1],500*speed);
 		actualgrad=1;
-		$("#bagueplastorendu").animate({left:"120%"},500);
+		$("#bagueplastorendu").animate({left:"120%"},500*speed);
 	}
 	
 	
 	var page5 = function(){
-		console.log("page 5");
-		gradientTransition("#fond",grad[actualgrad],grad[2],500);
+		console.log("page 5 - Bague transition (plastique)");
+		gradientTransition("#fond",grad[actualgrad],grad[2],500*speed);
 		actualgrad=2;
 		transitionbagueparallax(0,false);
-		$("#baguetransplast").animate({"opacity":"1"},500);
-		$("#bagueplastorendu").animate({left:"20%"},500,function(){
+		$("#baguetransplast").animate({"opacity":"1"},500*speed);
+		$("#bagueplastorendu").animate({left:"20%"},500*speed,function(){
 			wait=0;
 		});
 	}
 	
 	var page6 = function(){
-		console.log("page 6");
-		gradientTransition("#fond",grad[actualgrad],grad[3],500);
+		console.log("page 6 - Bague transition (Rendu)");
+		gradientTransition("#fond",grad[actualgrad],grad[3],500*speed);
 		actualgrad=3;
 		wait=0;
-		$("#bagueplastorendu").animate({left:"20%"});
-		$("#baguetransplast").animate({"opacity":"0"},500);
-		$("#ficheTechnique").animate({bottom:"-20%"});
+		$("#bagueplastorendu").animate({left:"20%"},500*speed);
+		$("#baguetransplast").animate({"opacity":"0"},500*speed);
+		$("#ficheTechnique").animate({bottom:"-20%"},500*speed);
 	}
 	
 	var page7 = function(){
-		console.log("page 7");
-		gradientTransition("#fond",grad[actualgrad],grad[4],500);
+		console.log("page 7 - fiche technique");
+		gradientTransition("#fond",grad[actualgrad],grad[4],500*speed);
 		actualgrad=4;
-		$(bagueplastorendu).animate({left:"120%"},500);
-		$("#ficheTechnique").animate({bottom:"92.5%"});
-		wait=0;
+		$("#bagueplastorendu").animate({left:"120%"},500*speed);
+		$("#ficheTechnique").animate({bottom:"92.5%"},500*speed);
+		$("#demontageRemontage").animate({top:"-100vh"},500*speed);
+		wait = 0;
 	}
 	
+	var page8 = function(){
+		console.log("page 8 - démontage");
+		gradientTransition("#fond",grad[actualgrad],grad[5],500*speed);
+		actualgrad = 5;
+		$("#ficheTechnique").animate({bottom:"-120vh"});
+		$(".dr-0").css({top:"30%"});
+		$(".dr-1").css({top:"15%"});
+		$(".dr-2").css({top:"00%"});
+		
+		$("#demontageRemontage").animate({top:0},500*speed,function(){
+			$(".drall").animate({top:"10%"},1000*speed,"swing",function(){wait=0;});
+		});
+	}
+	
+	
+	var page9 = function(){
+		console.log("page 9 - a propos de nous");
+		gradientTransition("#fond",grad[actualgrad],grad[6],500*speed);
+		actualgrad = 6;
+		$("#demontageRemontage").animate({top:"-100vh"},500*speed);
+		wait = 0;
+	}
+	
+	
 	var state = [
-		function(){page0();textTransition("#page0")},
-		function(){page1();textTransition("#page1")},
-		function(){page2();textTransition("#page2")},
-		function(){page3();textTransition("#page2")},
-		function(){page4();textTransition("#page2")},
-		function(){page5();textTransition("#page3")},
-		function(){page6();textTransition("#page4")},
-		function(){page7();textTransition("#page5")},
+		function(){page0();textTransition("#page0");},
+		function(){page1();textTransition("#page1");setActiveNav(1)},
+		function(){page2();textTransition("#page2");setActiveNav(2)},
+		function(){page3();textTransition("#page2bis");setActiveNav(3)},
+		function(){page4();textTransition("#page2ter");setActiveNav(4)},
+		function(){page5();textTransition("#page3");setActiveNav(5)},
+		function(){page6();textTransition("#page4");setActiveNav(6)},
+		function(){page7();textTransition("#page5");setActiveNav(7)},
+		function(){page8();textTransition("#page6");setActiveNav(8)},
+		function(){page9();textTransition("#page7");setActiveNav(9)},
 	]
 	
-	
+	function setActiveNav(page){
+		$("#navigation .valnav").removeClass("active");
+		$("#navigation :nth-child("+page+")").addClass("active");
+	}
 	
 	var oldState=0;
 	var stateCounter=0;
 	var wait = 1;
 	var waittext = 0;
+	var speed = 1;
 	document.addEventListener("wheel",function(){
-		if(wait==0 && waittext == 0){
+		changePage(event.deltaY);
+	});
+	
+	function changePage(dir){
+			if(wait==0 && waittext == 0){
 			oldState = stateCounter;
-			if (event.deltaY < 0){
+			if (dir < 0){
 				stateCounter--;
 				if(stateCounter<1) stateCounter = 1;
 			}else{
 				stateCounter++;
 				if(stateCounter>state.length-1)stateCounter = state.length-1
 			}
-			
-				
 			if(oldState!=stateCounter){
 				wait=1;
 				transition();
 			}
 		}
-	});
+	}
+	
+	var forceTransitionInterval;
+	function forceTransition(state){
+		if(state == stateCounter) return;
+		else if(state==stateCounter-1 || state == stateCounter+1)
+			speed=1;
+		else 
+			speed=0.25;
+		console.log(speed);
+			
+		forceTransitionInterval = setInterval(function(){
+			if(state == stateCounter){
+				clearInterval(forceTransitionInterval);	
+				speed=1;
+			}else if(state<stateCounter)
+				changePage(-1);
+			else
+				changePage(1);	
+		},10);	
+	}
+	
+	
 	
 	
 	function transition(){
@@ -230,19 +400,21 @@
 	function textTransition(id){
 		if(actualText_id == id) return;
 		waittext=1;
-		$(actualText_id).animate({opacity:0},100,function(){
-			$(id).animate({opacity:1},250,function(){
+		$(id).removeClass("d-none");
+		$(actualText_id).animate({opacity:0},100*speed,function(){
+			$(id).animate({opacity:1},250*speed,function(){
 				waittext=0;
+				$(actualText_id).addClass("d-none");
+				actualText_id = id;
 			});
 		});
-		actualText_id = id;
 	}
 	
 	function transitionbagueparallax(setbague,reapear = true,clbk = undefined){
-		$("#parallax").animate({opacity:0},500,function(){
+		$("#parallax").animate({opacity:0},500*speed,function(){
 			$("#parallax").css({"background-image":'url("img/Bague'+setbague+'/1.png"),url("img/Bague'+setbague+'/2.png"),url("img/Bague'+setbague+'/3.png")'});
 			if(reapear){
-				$("#parallax").animate({opacity:1},500,function(){
+				$("#parallax").animate({opacity:1},500*speed,function(){
 					wait = 0;
 					if(clbk != undefined) clbk();
 				});
