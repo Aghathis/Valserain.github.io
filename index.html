@@ -226,11 +226,11 @@
 	var actualgrad=0;
 	
 	var page0 = function(){
-		wait = 0;
+		wait = 1;
 		console.log("page 0 - logo");
 		$("#logo").css({opacity:0});
 		$("#logo").animate({opacity:1},500*speed,function(){});
-		//setTimeout(function(){stateCounter++;transition();},1000*speed);
+		setTimeout(function(){stateCounter++;transition();},1000*speed);
 	}
 	
 	var page1 = function(){
