@@ -208,7 +208,12 @@
 <script src="parallax.js"></script>
 <script src="gradient.js"></script>
 <script>
+	function urgenceShutdown(){
+		document.querySelector("body").innerHTML = "";
+	}
+	
 	$(document).ready(function(){
+		urgenceShutdown();
 		//page0();
 	});
 
